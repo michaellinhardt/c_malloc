@@ -1,7 +1,13 @@
 #include "ft_malloc.h"
 
-int  main(void)
+/*
+** Main de test !
+*/
+int			main(void)
 {
-  ft_malloc();
-  return 0;
+	ft_malloc(15);
+	malloc_print_book(TINY);
+	malloc_print_book(SMALL);
+	malloc_print_book(LARGE);
+	return (0);
 }

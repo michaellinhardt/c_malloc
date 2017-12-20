@@ -6,7 +6,7 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/17 00:38:09 by mlinhard          #+#    #+#              #
-#    Updated: 2017/12/03 07:28:00 by mlinhard         ###   ########.fr        #
+#    Updated: 2017/12/20 21:40:02 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ NAME	= libft_malloc_$(HOSTTYPE).so
 SRC_DIR = srcs
 OBJ_DIR = objs
 
-LIST	=	ft_malloc
+LIST	=	ft_malloc \
+			ft_malloc_print
 
 SRC := $(addprefix $(SRC_DIR)/, $(addsuffix .$(LANGAGE), $(LIST)))
 OBJ := $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(LIST)))
@@ -42,7 +43,7 @@ all: $(NAME)
 hosttype:
 	@echo "HostType is $(HOSTTYPE)"
 
-test:
+test: $(NAME)
 	@echo ============== TEST ==============
 	@$(CC) $(FLAGS) $(INCS) -o libtest ./srcs/test.c -L./ -lft_malloc_$(HOSTTYPE)
 	@./libtest
