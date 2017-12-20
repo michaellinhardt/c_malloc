@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 02:41:35 by mlinhard          #+#    #+#             */
-/*   Updated: 2017/12/20 21:41:07 by mlinhard         ###   ########.fr       */
+/*   Updated: 2017/12/20 22:00:35 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct			s_book
 	size_t            	size_block;
 	size_t            	size_bigger;
 	size_t            	size_free;
+	size_t            	size_used;
 	size_t            	count_pages;
 }						t_book;
 
@@ -54,6 +55,7 @@ enum book_name {
 /*
 ** ft_malloc.c functions:
 */
+enum book_name	get_book_name(size_t size);
 void			*do_mmap(size_t size);
 t_book			**book_open(void);
 void			book_init(t_book **book);

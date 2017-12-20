@@ -6,11 +6,28 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 02:41:43 by mlinhard          #+#    #+#             */
-/*   Updated: 2017/12/20 21:32:43 by mlinhard         ###   ########.fr       */
+/*   Updated: 2017/12/20 21:54:24 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_malloc.h"
+
+/*
+** It return the enum corresponding to the page category needed for this
+** allocation, depending on the demanded size and the size max for pages
+*/
+enum book_name	get_book_name(size_t size)
+{
+	t_book		**book;
+
+	book = book_open();
+	if (size <= book[0]->size_block)
+		return TINY;
+	else if (size <= book[1]->size_block)
+		return SMALL;
+	else
+		return LARGE;
+}
 
 void			book_init(t_book **book)
 {
@@ -32,7 +49,7 @@ void			book_init(t_book **book)
 }
 
 /*
-** mmap wrapper to shorten the code and allowing easy code incrementation
+** Function mmap wrapper, shorten the code and allow easy code incrementation
 */
 void			*do_mmap(size_t size)
 {
@@ -68,9 +85,11 @@ t_book			**book_open(void)
 
 void			*ft_malloc(size_t size)
 {
-	size += 1;
+	enum book_name		book_name;
 
-	printf("im malloc!\n");
+	book_name = get_book_name(size);
+
+	printf("im malloc of %zu size!\nbook name is: %d\n", size, book_name);
 
 	return (NULL);
 }

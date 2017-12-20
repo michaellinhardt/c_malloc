@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 21:03:29 by mlinhard          #+#    #+#             */
-/*   Updated: 2017/12/20 21:40:41 by mlinhard         ###   ########.fr       */
+/*   Updated: 2017/12/20 22:01:35 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void			malloc_print_book(enum book_name book_name)
 	printf("*** [ BOOK NUMBER %d ] ***\n", book_name);
 	printf("size_pages: %zu\n", book->size_pages);
 	printf("size_block: %zu\n", book->size_block);
+	printf("size_bigger: %zu\n", book->size_bigger);
 	printf("size_free: %zu\n", book->size_free);
+	printf("size_used: %zu\n", book->size_used);
 	printf("count_pages: %zu\n", book->count_pages);
 }
