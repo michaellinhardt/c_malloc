@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 02:41:43 by mlinhard          #+#    #+#             */
-/*   Updated: 2017/12/20 21:54:24 by mlinhard         ###   ########.fr       */
+/*   Updated: 2017/12/20 22:44:53 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,10 @@ t_book			**book_open(void)
 void			*ft_malloc(size_t size)
 {
 	enum book_name		book_name;
+	t_book				*book;
 
 	book_name = get_book_name(size);
+	book = book_open()[book_name];
 
 	printf("im malloc of %zu size!\nbook name is: %d\n", size, book_name);
 
