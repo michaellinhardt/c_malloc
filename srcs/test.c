@@ -5,9 +5,7 @@
 */
 int			main(void)
 {
-	ft_malloc(100);
-	malloc_print_book(TINY);
-	malloc_print_book(SMALL);
-	malloc_print_book(LARGE);
+	ft_malloc(630);
+
 	return (0);
 }
